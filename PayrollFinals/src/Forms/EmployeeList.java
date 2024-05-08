@@ -7,6 +7,8 @@ package Forms;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 import Forms.db;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.sql.*;
 
 /**
@@ -23,6 +25,10 @@ public class EmployeeList extends javax.swing.JFrame {
      */
     public EmployeeList() {
         initComponents();
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width/2 - getWidth()/2, 
+        size.height/2 - getHeight()/2);
         Update_table();
     }
     
