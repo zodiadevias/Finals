@@ -57,7 +57,7 @@ PreparedStatement pst=null;
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Users");
+        setTitle("Admin");
 
         cmd_add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Save-icon.png"))); // NOI18N
         cmd_add.setText("Add ");
