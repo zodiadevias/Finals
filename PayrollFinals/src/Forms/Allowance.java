@@ -561,7 +561,7 @@ PreparedStatement pst=null;
         double eight = 8;
         double days = 25;
         double dbop = 0;
-        double overtimeRate = 1.5;
+        double overtimeRate = 75;
         
         //calculate the total hours of overtime
         double Total_Overtime = overtime * overtimeRate;

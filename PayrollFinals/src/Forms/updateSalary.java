@@ -347,12 +347,12 @@ PreparedStatement pst=null;
                 String add5 =rs.getString("Salary");
                 txt_salary.setText(add5);
 
-                String add8 =rs.getString("Department");
-                txt_dept.setText(add8);
+                String add6 =rs.getString("Department");
+                txt_dept.setText(add6);
             
 
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            
         }
         finally {
 

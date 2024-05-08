@@ -35,7 +35,7 @@ public class EmployeeList extends javax.swing.JFrame {
     private void Update_table() {
     try{
         conn=db.java_db();
-        String sql ="select * from Staff_information";
+        String sql ="select id,first_name,surname from Staff_information";
         pst=conn.prepareStatement(sql);
         rs=pst.executeQuery();
         tbl_emplist.setModel(DbUtils.resultSetToTableModel(rs));

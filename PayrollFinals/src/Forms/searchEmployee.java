@@ -79,8 +79,6 @@ private void Update_table() {
         txt_email = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        r_male = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
         txt_dob = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txt_surname = new javax.swing.JTextField();
@@ -114,6 +112,7 @@ private void Update_table() {
         cmd_delete = new javax.swing.JButton();
         txt_update = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        txt_gender = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txt_emp = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -188,20 +187,6 @@ private void Update_table() {
         jLabel6.setText("Email :");
 
         jLabel12.setText("Gender:");
-
-        r_male.setText("Male");
-        r_male.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                r_maleActionPerformed(evt);
-            }
-        });
-
-        jRadioButton2.setText("Female");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Date of Birth :");
 
@@ -315,15 +300,15 @@ private void Update_table() {
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel12))
                                 .addGap(81, 81, 81)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(r_male)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jRadioButton2))
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txt_email, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txt_tel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)))
-                                .addGap(27, 27, 27))
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(txt_email, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txt_tel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
+                                        .addGap(27, 27, 27))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(txt_gender)
+                                        .addGap(18, 18, 18))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
@@ -373,7 +358,7 @@ private void Update_table() {
                             .addComponent(txt_add2, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_address, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_apt, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -400,10 +385,9 @@ private void Update_table() {
                                     .addComponent(jLabel3)
                                     .addComponent(txt_dob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(r_male)
-                                    .addComponent(jRadioButton2)
-                                    .addComponent(jLabel12)))
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel12)
+                                    .addComponent(txt_gender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel9)
@@ -585,7 +569,7 @@ private void Update_table() {
                 txt_dep.setText(add8);
                 
                 String add9 =rs.getString("Gender");
-                txt_dep.setText(add9);
+                txt_gender.setText(add9);
                 
                 String add10 =rs.getString("Salary");
                 txt_salary.setText(add10);
@@ -610,6 +594,8 @@ private void Update_table() {
                 
                 String add17 =rs.getString("Designation");
                 txt_desig.setText(add17);
+                
+                
 
                 
                 
@@ -670,18 +656,6 @@ private void Update_table() {
     private void txt_firstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_firstnameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_firstnameActionPerformed
-
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
-
-        gender ="Female";
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
-    private void r_maleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_maleActionPerformed
-        // TODO add your handling code here:
-
-        gender ="Male";
-    }//GEN-LAST:event_r_maleActionPerformed
 
     private void cmd_deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_deleteActionPerformed
         // TODO add your handling code here:
@@ -768,12 +742,13 @@ private void Update_table() {
                 String value14 = txt_salary.getText();
                 String value15 = txt_job.getText();
                 String value16 = txt_doj.getText();
+                String value17 = txt_gender.getText();
 
                 String sql= "update Staff_information set id='"+value4+"',first_name='"+value1+"', surname='"+value2+"', "
                         + "Dob='"+value3+"',Email='"+value5+"',Telephone='"+value6+"',"
                         + "Address='"+value7+"',Department='"+value8+"', Address2 = '"+value9+"', "
                         + "Apartment = '"+value10+"', Post_code ='"+value11+"', "
-                        + "Designation ='"+value12+"', Status ='"+value13+"', Salary ='"+value14+"', job_title ='"+value15+"', Date_Hired ='"+value16+"'   "
+                        + "Designation ='"+value12+"', Status ='"+value13+"', Salary ='"+value14+"', job_title ='"+value15+"', Date_Hired ='"+value16+"', Gender ='"+value17+"'   "
                         + " where id='"+value4+"' ";
 
                 pst=conn.prepareStatement(sql);
@@ -838,6 +813,7 @@ private void Update_table() {
         txt_job.setText("");
         txt_apt.setText("");
         txt_doj.setText("");
+        txt_gender.setText("");
         lbl_img.setIcon(null);
         txt_search.setText("");
 
@@ -922,11 +898,9 @@ private void Update_table() {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JLabel lbl_img;
     private javax.swing.JMenu menu_emplist;
     private java.awt.Panel panel1;
-    private javax.swing.JRadioButton r_male;
     private javax.swing.JTextField txt_add2;
     private javax.swing.JTextField txt_address;
     private javax.swing.JTextField txt_apt;
@@ -937,6 +911,7 @@ private void Update_table() {
     private javax.swing.JTextField txt_email;
     private javax.swing.JLabel txt_emp;
     private javax.swing.JTextField txt_firstname;
+    private javax.swing.JTextField txt_gender;
     private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_job;
     private javax.swing.JTextField txt_pc;
