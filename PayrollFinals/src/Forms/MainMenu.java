@@ -15,6 +15,7 @@ import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -64,7 +65,7 @@ PreparedStatement pst=null;
         mnAudit = new javax.swing.JMenu();
         menu_audit = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Menu");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -140,7 +141,7 @@ PreparedStatement pst=null;
         });
         getContentPane().add(btn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bk2.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/menu.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 570));
 
         mnEmp.setText("Employee");
@@ -271,7 +272,9 @@ PreparedStatement pst=null;
  
             pst=conn.prepareStatement(sql);
             rs=pst.executeQuery();
-            
+            Date date = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String formattedDate = sdf.format(date);
            
            Document myDocument = new Document();
            PdfWriter myWriter = PdfWriter.getInstance(myDocument, new FileOutputStream(filePath ));
@@ -286,7 +289,7 @@ PreparedStatement pst=null;
            
           
           myDocument.add(new Paragraph("Employees List",FontFactory.getFont(FontFactory.TIMES_BOLD,20,Font.BOLD )));
-          myDocument.add(new Paragraph(new Date().toString()));
+          myDocument.add(new Paragraph(formattedDate));
           myDocument.add(new Paragraph("-------------------------------------------------------------------------------------------"));
           table.addCell(new PdfPCell(new Paragraph("ID",FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.BOLD))));
           table.addCell(new PdfPCell(new Paragraph("First Name",FontFactory.getFont(FontFactory.TIMES_ROMAN,9,Font.BOLD))));
@@ -364,7 +367,9 @@ PreparedStatement pst=null;
  
             pst=conn.prepareStatement(sql);
             rs=pst.executeQuery();
-            
+            Date date = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String formattedDate = sdf.format(date);
            
            Document myDocument = new Document();
            PdfWriter myWriter = PdfWriter.getInstance(myDocument, new FileOutputStream(filePath ));
@@ -379,7 +384,7 @@ PreparedStatement pst=null;
            
           
            myDocument.add(new Paragraph("Employees Allowance List",FontFactory.getFont(FontFactory.TIMES_BOLD,20,Font.BOLD )));
-           myDocument.add(new Paragraph(new Date().toString()));
+           myDocument.add(new Paragraph(formattedDate));
            myDocument.add(new Paragraph("-------------------------------------------------------------------------------------------"));
           table.addCell(new PdfPCell(new Paragraph("ID",FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.BOLD))));
           table.addCell(new PdfPCell(new Paragraph("Overtime",FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.BOLD))));
@@ -455,6 +460,11 @@ PreparedStatement pst=null;
             pst=conn.prepareStatement(sql);
             rs=pst.executeQuery();
             
+            Date date = new Date();
+        
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String formattedDate = sdf.format(date);
+            
            
            Document myDocument = new Document();
            PdfWriter myWriter = PdfWriter.getInstance(myDocument, new FileOutputStream(filePath ));
@@ -469,7 +479,7 @@ PreparedStatement pst=null;
            
           
            myDocument.add(new Paragraph("Employees Deduction List",FontFactory.getFont(FontFactory.TIMES_BOLD,20,Font.BOLD )));
-           myDocument.add(new Paragraph(new Date().toString()));
+           myDocument.add(new Paragraph(formattedDate));
            myDocument.add(new Paragraph("-------------------------------------------------------------------------------------------"));
           table.addCell(new PdfPCell(new Paragraph("ID",FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.BOLD))));
           table.addCell(new PdfPCell(new Paragraph("First Name",FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.BOLD))));

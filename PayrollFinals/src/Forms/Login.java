@@ -85,6 +85,11 @@ public class Login extends javax.swing.JFrame {
                 btnloginActionPerformed(evt);
             }
         });
+        btnlogin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnloginKeyPressed(evt);
+            }
+        });
         getContentPane().add(btnlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 80, 30));
 
         txtuser.addActionListener(new java.awt.event.ActionListener() {
@@ -152,6 +157,13 @@ public class Login extends javax.swing.JFrame {
             Log_in();
         }
     }//GEN-LAST:event_txtpassKeyPressed
+
+    private void btnloginKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnloginKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            Log_in();
+        }
+    }//GEN-LAST:event_btnloginKeyPressed
 
     /**
      * @param args the command line arguments

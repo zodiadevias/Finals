@@ -9,6 +9,7 @@ package Forms;
 
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -132,17 +133,23 @@ PreparedStatement pst=null;
         jMenuBar2.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Add Employee");
         setResizable(false);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Employee Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Adobe Arabic", 1, 14))); // NOI18N
 
         jLabel7.setText("Contact :");
 
+        txt_tel.setNextFocusableComponent(txt_address);
+
+        txt_email.setNextFocusableComponent(txt_tel);
+
         jLabel6.setText("Email :");
 
         jLabel11.setText("Gender:");
 
         r_male.setText("Male");
+        r_male.setNextFocusableComponent(r_female);
         r_male.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 r_maleActionPerformed(evt);
@@ -150,18 +157,24 @@ PreparedStatement pst=null;
         });
 
         r_female.setText("Female");
+        r_female.setNextFocusableComponent(txt_email);
         r_female.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 r_femaleActionPerformed(evt);
             }
         });
 
+        txt_dob.setNextFocusableComponent(txt_dep);
+
         jLabel3.setText("Date of Birth :");
+
+        txt_surname.setNextFocusableComponent(txt_dob);
 
         jLabel2.setText("Surname :");
 
         jLabel1.setText("First name :");
 
+        txt_firstname.setNextFocusableComponent(txt_surname);
         txt_firstname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_firstnameActionPerformed(evt);
@@ -169,6 +182,7 @@ PreparedStatement pst=null;
         });
 
         txt_id.setEditable(false);
+        txt_id.setNextFocusableComponent(txt_firstname);
         txt_id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_idActionPerformed(evt);
@@ -204,22 +218,38 @@ PreparedStatement pst=null;
 
         jLabel16.setText("Zip Code:");
 
+        txt_pc.setNextFocusableComponent(cmd_save);
+
+        txt_apt.setNextFocusableComponent(txt_pc);
         txt_apt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_aptActionPerformed(evt);
             }
         });
 
+        txt_add2.setNextFocusableComponent(txt_apt);
+
+        txt_address.setNextFocusableComponent(txt_add2);
+
         jLabel9.setText("Department :");
+
+        txt_dep.setNextFocusableComponent(txt_desig);
+
+        txt_desig.setNextFocusableComponent(txt_status);
 
         jLabel13.setText("Designation :");
 
         jLabel17.setText("Status :");
 
+        txt_status.setNextFocusableComponent(txt_doj);
+
+        txt_doj.setNextFocusableComponent(txt_salary);
+
         jLabel12.setText("Basic Salary :");
 
         jLabel18.setText("Date Hired :");
 
+        txt_salary.setNextFocusableComponent(txt_job);
         txt_salary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_salaryActionPerformed(evt);
@@ -233,15 +263,22 @@ PreparedStatement pst=null;
                 cmd_saveActionPerformed(evt);
             }
         });
+        cmd_save.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cmd_saveKeyPressed(evt);
+            }
+        });
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/erase-128.png"))); // NOI18N
         jButton1.setText("Clear");
+        jButton1.setNextFocusableComponent(txt_firstname);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        txt_job.setNextFocusableComponent(r_male);
         txt_job.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_jobActionPerformed(evt);
@@ -499,6 +536,96 @@ PreparedStatement pst=null;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        clearTexts();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void cmd_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_saveActionPerformed
+        // TODO add your handling code here:
+        addRecord();
+    }//GEN-LAST:event_cmd_saveActionPerformed
+
+    private void txt_salaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_salaryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_salaryActionPerformed
+
+    private void txt_aptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_aptActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_aptActionPerformed
+
+    private void txt_firstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_firstnameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_firstnameActionPerformed
+
+    private void r_femaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_femaleActionPerformed
+        // TODO add your handling code here:
+        gender ="Female";
+        r_female.setSelected(true);
+        r_male.setSelected(false);
+        
+    }//GEN-LAST:event_r_femaleActionPerformed
+
+    private void r_maleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_maleActionPerformed
+        // TODO add your handling code here:
+        gender ="Male";
+        r_male.setSelected(true);
+        r_female.setSelected(false);
+    }//GEN-LAST:event_r_maleActionPerformed
+
+    private void txt_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_idActionPerformed
+
+    private void cmd_saveKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmd_saveKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            addRecord();
+        }
+    }//GEN-LAST:event_cmd_saveKeyPressed
+
+    
+    
+    
+    
+    
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(addEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(addEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(addEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(addEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new addEmployee().setVisible(true);
+            }
+        });
+    }
+    private void clearTexts(){
         txt_id.setText("");
         txt_firstname.setText("");
         txt_surname.setText("");
@@ -516,10 +643,8 @@ PreparedStatement pst=null;
         txt_apt.setText("");
         txt_doj.setText("");
         img.setIcon(null);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void cmd_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_saveActionPerformed
-        // TODO add your handling code here:
+    }
+    private void addRecord(){
         int p = JOptionPane.showConfirmDialog(null, "Are you sure you want to add record?","Add Record",JOptionPane.YES_NO_OPTION);
         if(p==0){
 
@@ -637,81 +762,6 @@ PreparedStatement pst=null;
             }
          }
         }
-    }//GEN-LAST:event_cmd_saveActionPerformed
-
-    private void txt_salaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_salaryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_salaryActionPerformed
-
-    private void txt_aptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_aptActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_aptActionPerformed
-
-    private void txt_firstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_firstnameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_firstnameActionPerformed
-
-    private void r_femaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_femaleActionPerformed
-        // TODO add your handling code here:
-        gender ="Female";
-        r_female.setSelected(true);
-        r_male.setSelected(false);
-        
-    }//GEN-LAST:event_r_femaleActionPerformed
-
-    private void r_maleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_maleActionPerformed
-        // TODO add your handling code here:
-        gender ="Male";
-        r_male.setSelected(true);
-        r_female.setSelected(false);
-    }//GEN-LAST:event_r_maleActionPerformed
-
-    private void txt_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_idActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_idActionPerformed
-
-    
-    
-    
-    
-    
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(addEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(addEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(addEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(addEmployee.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new addEmployee().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

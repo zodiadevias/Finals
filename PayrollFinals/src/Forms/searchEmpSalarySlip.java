@@ -15,6 +15,7 @@ import java.io.FileOutputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -377,6 +378,9 @@ PreparedStatement pst=null;
             pst=conn.prepareStatement(sq);
             rs=pst.executeQuery(); 
             
+            Date date = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String formattedDate = sdf.format(date);
             
            int calcTotal = Integer.parseInt(txt_salary.getText());
            float x = Float.valueOf(rs.getString(9));
@@ -388,7 +392,7 @@ PreparedStatement pst=null;
            myDocument.open();
            
            myDocument.add(new Paragraph("PAY SLIP",FontFactory.getFont(FontFactory.TIMES_BOLD,20,Font.BOLD )));
-           myDocument.add(new Paragraph(new Date().toString()));
+           myDocument.add(new Paragraph(formattedDate));
            myDocument.add(new Paragraph("-------------------------------------------------------------------------------------------"));
            myDocument.add((new Paragraph("EMPLOYEE DETAILS",FontFactory.getFont(FontFactory.TIMES_ROMAN,15,Font.BOLD))));
            myDocument.add((new Paragraph("Name of Employee: " +value + " "+value0,FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN))));
@@ -396,19 +400,19 @@ PreparedStatement pst=null;
            myDocument.add((new Paragraph("Department: "+value3,FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN))));
            myDocument.add(new Paragraph("-------------------------------------------------------------------------------------------"));
            myDocument.add(new Paragraph("SALARY",FontFactory.getFont(FontFactory.TIMES_ROMAN,15,Font.BOLD)));
-           myDocument.add(new Paragraph("Basic Salary: PHP"+calcTotal,FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN)));
+           myDocument.add(new Paragraph("Basic Salary: PHP "+calcTotal,FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN)));
            myDocument.add(new Paragraph("Overtime: "+rs.getString(2)+" Hours",FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN)));
-           myDocument.add(new Paragraph("Medical: PHP" +rs.getString(3),FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN)));
-           myDocument.add(new Paragraph("Bonus: PHP"+rs.getString(4),FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN)));
-           myDocument.add(new Paragraph("Other: PHP"+rs.getString(5),FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN)));
+           myDocument.add(new Paragraph("Medical: PHP " +rs.getString(3),FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN)));
+           myDocument.add(new Paragraph("Bonus: PHP "+rs.getString(4),FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN)));
+           myDocument.add(new Paragraph("Other: PHP "+rs.getString(5),FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN)));
            myDocument.add(new Paragraph("-------------------------------------------------------------------------------------------"));
            myDocument.add(new Paragraph("DEDUCTION",FontFactory.getFont(FontFactory.TIMES_ROMAN,15,Font.BOLD)));
            myDocument.add(new Paragraph("Deduction Details: "+reason,FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN)));
-           myDocument.add(new Paragraph("Total Deductions : PHP"+val ,FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN)));
+           myDocument.add(new Paragraph("Total Deductions : PHP "+val ,FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN)));
            myDocument.add(new Paragraph("-------------------------------------------------------------------------------------------"));
            myDocument.add(new Paragraph("TOTAL PAYMENT",FontFactory.getFont(FontFactory.TIMES_ROMAN,15,Font.BOLD)));
-           myDocument.add(new Paragraph("Total Earnings: "+rs.getString(9),FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN)));
-           myDocument.add(new Paragraph("Net Pay : " +total,FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN)));
+           myDocument.add(new Paragraph("Total Earnings: PHP "+rs.getString(9),FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN)));
+           myDocument.add(new Paragraph("Net Pay : PHP " +total,FontFactory.getFont(FontFactory.TIMES_ROMAN,10,Font.PLAIN)));
            myDocument.add(new Paragraph("-------------------------------------------------------------------------------------------"));
            
            
