@@ -570,9 +570,9 @@ PreparedStatement pst=null;
         int overtime = Integer.parseInt(txt_hw.getText());
 
         double eight = 8;
-        double days = 25;
+        double days = 27;
         double dbop = 0;
-        double overtimeRate = 75;
+        double overtimeRate = 1.5;
         
         //calculate the total hours of overtime
         double Total_Overtime = overtime * overtimeRate;
