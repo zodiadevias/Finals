@@ -722,9 +722,13 @@ PreparedStatement pst=null;
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        deleteRecords("Allowance",txt_empid.getText().toString());
-        deleteRecords("Deductions",txt_empid.getText().toString());
-        Update_table();
+        
+        int p = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete records?","Delete",JOptionPane.YES_NO_OPTION);
+            if (p == 0){
+                deleteRecords("Allowance",txt_empid.getText().toString());
+                deleteRecords("Deductions",txt_empid.getText().toString());
+                Update_table();
+            }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
